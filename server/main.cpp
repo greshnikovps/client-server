@@ -41,7 +41,7 @@ int main(void)
     const int SLEEP_INTERVAL = 1;
 
     Server server;
-    while (1)
+    for (;;)
     {
         server.recvAndSaveFile(FILE_NAME);
         sleep(SLEEP_INTERVAL);

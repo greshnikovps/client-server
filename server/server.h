@@ -12,20 +12,19 @@
 #include <fcntl.h>
 #include <fstream>
 
-#define RECEIVE_TIMEOUT_USEC 10
+#define INVALID_SOCKET -1
 #define PORT 8080
 
 class Server {
 public:
-	Server();
-	int recvAndSaveFile(std::string fileName);
+    Server();
+    int recvAndSaveFile(std::string fileName);
 private:
-	int setReceiveTimeout(int usec);
-	int ReceiveMessage(char* dst, size_t msgSize);
-	int ReceiveMessageSize(size_t& msgSize);
+    int ReceiveMessage(char* dst, size_t msgSize);
+    int ReceiveMessageSize(size_t& msgSize);
 
-	sockaddr_in addr;
-	int recvSocket;
-	int acceptSocket;
-	bool acceptRequired;
+    sockaddr_in addr;
+    int recvSocket;
+    int acceptSocket;
+    bool acceptRequired;
 };
